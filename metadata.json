@@ -1,0 +1,6 @@
+{
+  "name": "Papies Company — Astral Pipes & Living Store",
+  "description": "Premium Sky Blue and White e-commerce storefront and official interactive price list catalog for Papies Company featuring Astral Pipes, SWR Fittings, CPVC Systems, Sanitaryware, and Architectural Living collections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

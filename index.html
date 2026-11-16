@@ -9,12 +9,30 @@
     <meta property="og:description" content="Official Astral Pipes Price List (02.10.2025) for Papies Company: Aquasafe ISI PVC Pipes, SWR Selfit Fittings, CPVC SDR 11 & 13.5, Pipe Fix Solvents, Cleo 4D Water Tanks & Sanitaryware." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none'%3E%3Crect width='64' height='64' rx='14' fill='%230B1524'/%3E%3Cpath d='M8 46L22 18L33 38H24L22 33L16 46H8Z' fill='%2338BDF8'/%3E%3Cpath d='M24 46L38 16L56 46H46L38 31L31 46H24Z' fill='%230284C7'/%3E%3Cpath d='M35 28L41 19L47 28H35Z' fill='%23E0F2FE'/%3E%3C/svg%3E"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- VITE_ENTRY_MOUNT -->
+    <script data-standalone-boot>
+      (function () {
+        window.__PAPIES_ASSET_PREFIX__ = './public/';
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = './public/standalone/app.css';
+        document.head.appendChild(link);
+        var script = document.createElement('script');
+        script.type = 'module';
+        script.src = './public/standalone/app.js';
+        document.body.appendChild(script);
+      })();
+    </script>
   </body>
 </html>

@@ -7,6 +7,7 @@ import {
   type CatalogProduct,
 } from '../data/catalog';
 import { formatINR, getStartingPrice } from '../utils/catalogLogic';
+import { resolveAssetPath } from '../utils/assetPath';
 
 interface BrochureViewerPageProps {
   onSelectProduct: (product: CatalogProduct) => void;
@@ -109,7 +110,7 @@ export const BrochureViewerPage: React.FC<BrochureViewerPageProps> = ({
 
           <div className="mt-4 overflow-auto max-h-[760px] bg-slate-50 p-4 flex justify-center border border-slate-100">
             <img
-              src={activeSheet.src}
+              src={resolveAssetPath(activeSheet.src)}
               alt={activeSheet.title}
               referrerPolicy="no-referrer"
               style={{ width: `${zoom * 100}%`, maxWidth: zoom === 1 ? '540px' : 'none' }}

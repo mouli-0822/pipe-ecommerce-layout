@@ -28,6 +28,7 @@ import {
 import { ProductCard } from './ProductCard';
 import { CroppedAssetImage } from './CroppedAssetImage';
 import { type ActivePage } from './Navbar';
+import { resolveAssetPath } from '../utils/assetPath';
 
 interface HomePageProps {
   wishlist: string[];
@@ -418,7 +419,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 {/* Top 8K Architectural Hero Scene Banner */}
                 <div className="relative h-48 sm:h-56 rounded-xl overflow-hidden border border-sky-300/30">
                   <img
-                    src="/assets/generated/hero_pipes_engineering.jpg"
+                    src={resolveAssetPath('/assets/generated/hero_pipes_engineering.jpg')}
                     alt="Papies Company Engineered Astral Piping Showcase"
                     className="w-full h-full object-cover object-center"
                   />

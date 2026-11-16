@@ -1,5 +1,6 @@
 import React, { useId } from 'react';
 import { ImageCrop } from '../data/catalog';
+import { resolveAssetPath } from '../utils/assetPath';
 
 interface CroppedAssetImageProps {
   crop: ImageCrop;
@@ -27,6 +28,8 @@ export const CroppedAssetImage: React.FC<CroppedAssetImageProps> = ({
   const vw = Math.min(crop.imgW - vx, crop.w + padX * 2);
   const vh = Math.min(crop.imgH - vy, crop.h + padY * 2);
 
+  const resolvedHref = resolveAssetPath(crop.src);
+
   return (
     <svg
       viewBox={`${vx} ${vy} ${vw} ${vh}`}
@@ -43,7 +46,7 @@ export const CroppedAssetImage: React.FC<CroppedAssetImageProps> = ({
         </clipPath>
       </defs>
       <image
-        href={crop.src}
+        href={resolvedHref}
         width={crop.imgW}
         height={crop.imgH}
         preserveAspectRatio="none"

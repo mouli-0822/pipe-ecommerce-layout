@@ -2,6 +2,7 @@ import React from 'react';
 import { ShieldCheck, FileCheck2, Phone, Award, ArrowRight } from 'lucide-react';
 import { COMPANY_INFO, BROCHURE_PAGES, type ProductCategory } from '../data/catalog';
 import { PapiesGeometricLogo, type ActivePage } from './Navbar';
+import { resolveAssetPath } from '../utils/assetPath';
 
 interface AboutPageProps {
   onNavigate: (page: ActivePage, categoryFilter?: ProductCategory | 'All') => void;
@@ -156,7 +157,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               {BROCHURE_PAGES.map((sheet) => (
                 <div key={sheet.pageNumber} className="bg-white/5 p-2.5 border border-sky-400/20">
                   <img
-                    src={sheet.src}
+                    src={resolveAssetPath(sheet.src)}
                     alt={sheet.title}
                     className="w-full h-28 object-contain bg-white p-1"
                   />

@@ -3,12 +3,40 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
+const injectViteEntry = (html: string) =>
+  html
+    .replace(/<script[^>]*data-standalone-boot[^>]*>[\s\S]*?<\/script>/g, '')
+    .replace(
+      /<!--\s*VITE_ENTRY_MOUNT\s*-->/g,
+      '<script type="module" src="/src/main.tsx"></script>'
+    );
+
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    base: './',
+    plugins: [
+      {
+        name: 'papies-entry-resolver',
+        enforce: 'pre',
+        transform(code, id) {
+          if (id.endsWith('.html')) {
+            return injectViteEntry(code);
+          }
+          return null;
+        },
+        transformIndexHtml: {
+          order: 'pre',
+          handler(html) {
+            return injectViteEntry(html);
+          },
+        },
+      },
+      react(),
+      tailwindcss(),
+    ],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(import.meta.dirname, '.'),
       },
     },
     server: {

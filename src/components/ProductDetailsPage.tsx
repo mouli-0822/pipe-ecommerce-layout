@@ -18,6 +18,7 @@ import {
 import { formatINR } from '../utils/catalogLogic';
 import { CroppedAssetImage } from './CroppedAssetImage';
 import { ProductCard } from './ProductCard';
+import { resolveAssetPath } from '../utils/assetPath';
 
 interface ProductDetailsPageProps {
   product: CatalogProduct;
@@ -172,7 +173,7 @@ export const ProductDetailsPage: React.FC<ProductDetailsPageProps> = ({
                 {activeGalleryTab === 'sheet' && (
                   <div className="w-full max-h-[460px] overflow-auto flex justify-center bg-slate-50 p-3 rounded-xl border border-slate-200">
                     <img
-                      src={product.imageCrop.src}
+                      src={resolveAssetPath(product.imageCrop.src)}
                       alt={`${product.name} Full Reference Sheet`}
                       referrerPolicy="no-referrer"
                       className="max-h-[430px] w-auto object-contain rounded"
